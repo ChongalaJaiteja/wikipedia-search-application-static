@@ -58,7 +58,6 @@ function searchWikipedia(event) {
 
         let searchInput = searchInputEl.value;
         let url = `https://apis.ccbp.in/wiki-search?search=${searchInput}`;
-        console.log("hi");
         let loadUrls = async () => {
             try {
                 const response = await fetch(url);

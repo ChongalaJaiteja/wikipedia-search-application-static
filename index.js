@@ -57,21 +57,22 @@ function searchWikipedia(event) {
         searchResultsEl.textContent = "";
 
         let searchInput = searchInputEl.value;
-        let url = "https://apis.ccbp.in/wiki-search?search=" + searchInput;
-        let options = {
-            method: "GET"
+        let url = `https://apis.ccbp.in/wiki-search?search=${searchInput}`;
+        console.log("hi");
+        let loadUrls = async () => {
+            try {
+                const response = await fetch(url);
+                const jsonData = await response.json();
+                const {search_results} = jsonData;
+                console.log(jsonData);
+                displayResults(search_results);
+            }
+            catch(e) {
+                console.log(`Error occured ${e.message}`);
+            }
         };
 
-        fetch(url, options)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(jsonData) {
-                let {
-                    search_results
-                } = jsonData;
-                displayResults(search_results);
-            });
+        loadUrls();
     }
 }
 

@@ -5,8 +5,12 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
 }
-
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 * {
     outline: none;
     box-sizing: border-box;
@@ -20,24 +24,57 @@
 }
 
 .wiki-logo {
-    margin-bottom: 30px;
-    width: 150px;
+    margin-block: 1em;
+    width: min(40%, 13rem);
 }
 
 .search-input {
     border: 1px solid #d5cdcd;
     border-radius: 30px;
-    padding: 0.76em;
-    width: 100%;
-    max-width: 40rem;
+    padding: 0.64em;
+    width: min(94%,50rem);
+    text-overflow: ellipsis;
 }
-
+.search-navbar {
+    padding: 1em 0em 0em;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-options-nav-bar{
+    margin-block: 1em;
+    display: flex;
+    gap: 0.6em;
+    width: min(94%,50rem);
+    padding-left: 0.6em;
+}
+.search-option {
+    border: 1px solid rgb(205, 205, 205);
+    padding: 0.3em 0.8em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+}
+.selected-search-option {
+    background-color: rgb(243, 241, 241);
+}
+.search-option:hover {
+    background-color: rgb(243, 241, 241);
+    transform: scale(1.1);
+}
 .search-results {
-    padding: clamp(1em,1vw + 0.9em,3em);
+    padding: clamp(1em, 1vw + 0.9em, 3em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .result-item {
     margin-bottom: 20px;
+    width: 89%;
 }
 
 .result-title {
